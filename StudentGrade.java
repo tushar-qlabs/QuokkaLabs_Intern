@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class StudentGrade {
 
-    public static int[] getMarks(String marksLine) {
-        return Arrays.stream(marksLine.trim().split("\\s+"))
+    public static int[] getMarks(String marksString) {
+        return Arrays.stream(marksString.trim().split("\\s+"))
                 .mapToInt(Integer::parseInt)
                 .toArray();
     }
