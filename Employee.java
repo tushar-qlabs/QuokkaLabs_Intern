@@ -27,11 +27,4 @@ public class Employee {
         System.out.println("Salary: " + getSalary());
         System.out.println("Department: " + department);
     }
-
-    public void displayDetails(Employee emp) {
-        System.out.println("ID: " + emp.id);
-        System.out.println("Name: " + emp.name);
-        System.out.println("Salary: " + emp.getSalary());
-        System.out.println("Department: " + emp.department);
-    }
 }
