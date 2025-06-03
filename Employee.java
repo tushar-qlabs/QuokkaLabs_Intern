@@ -11,15 +11,10 @@ public class Employee {
         this.salary = salary;
         this.department = department;
     }
-
-    public double getSalary() {
-        return salary;
-    }
-
     public void displayDetails() {
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
-        System.out.println("Salary: " + getSalary());
+        System.out.println("Salary: " + salary);
         System.out.println("Department: " + department);
     }
 }
