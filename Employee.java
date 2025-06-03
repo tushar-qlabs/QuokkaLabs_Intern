@@ -2,7 +2,7 @@ public class Employee {
 
     public int id;
     public String name;
-    private double salary;
+    private final double salary;
     public String department;
 
     public Employee(int id, String name, double salary, String department) {
@@ -10,15 +10,10 @@ public class Employee {
         this.name = name;
         this.salary = salary;
         this.department = department;
-        setSalary(salary);
     }
 
     public double getSalary() {
         return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
     }
 
     public void displayDetails() {
