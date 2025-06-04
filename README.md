@@ -1,64 +1,99 @@
-# QuokkaLabs_Intern
+# 🧵 Thread Synchronization in Java (`QuokkaLabs_Intern`)
 
-Two threads cannot access different synchronized methods of the same object at the same time if the methods are synchronized on the same monitor, i.e., this.
+### 🔐 Synchronized "Methods" Share the Same Lock
 
+```java
 public synchronized void methodA() { ... }
 public synchronized void methodB() { ... }
+```
 
-Both methodA() and methodB() are synchronized on the same object lock (this). So:
+- Both `methodA()` and `methodB()` are synchronized on the same monitor — the **current object (`this`)**.
+- If **Thread-1** enters `methodA()`, it **locks `this`**.
+- While Thread-1 holds that lock, **Thread-2 cannot enter** `methodB()` or any other synchronized method on the **same object**.
 
-If Thread-1 enters methodA(), it acquires the lock on this object.
+---
 
-While Thread-1 holds that lock, Thread-2 cannot enter methodB() or any other synchronized method of the same object — because it’s trying to acquire the same lock.
+### ✅ Concurrent Access Possible If...
 
-✅ But Yes, if:
-One method is not synchronized, it can be accessed by other threads.
+#### 1. One method is **not synchronized**:
 
-Or, you synchronize on different locks, like:
+```java
+public synchronized void methodA() { ... }
 
+public void methodB() { // not synchronized
+    ...
+}
+```
+
+> Now, different threads can access both methods simultaneously.
+
+#### 2. Methods synchronize on **different locks**:
+
+```java
 private final Object lockA = new Object();
 private final Object lockB = new Object();
 
 public void methodA() {
-    synchronized(lockA) {
+    synchronized (lockA) {
         // critical section A
     }
 }
 
 public void methodB() {
-    synchronized(lockB) {
+    synchronized (lockB) {
         // critical section B
     }
 }
-Now, different threads can enter methodA() and methodB() at the same time... because they lock on different objects.
+```
 
-Point to be noted that, when you use synchronized method Lock is acquired itself on the current object (this).
+> Now, threads can execute `methodA()` and `methodB()` concurrently since they **lock on different objects**.
 
-Means ...
-Instance method (non-static):
+---
+
+### 🔍 What Does `synchronized` Actually Lock?
+
+#### ✅ Instance Method (`non-static`)
+```java
 public synchronized void methodA() { ... }
+```
 
-Is similar to ...
+⟺ Equivalent to:
+
+```java
 public void methodA() {
     synchronized (this) {
         ...
     }
 }
+```
 
+#### ✅ Static Method
+```java
+public static synchronized void staticMethod() { ... }
+```
 
-Same way...
-A static synchronized method is 100% equivalent to synchronizing on the class object:
-public static synchronized void staticMethod() {
-    // synchronized on MyClass.class
-}
+⟺ Equivalent to:
 
-⟺ Equivalent to ...
+```java
 public static void staticMethod() {
     synchronized (MyClass.class) {
-        // same effect
+        ...
     }
 }
+```
 
+---
 
+### ✅ Summary
 
+| Type                        | Locks On            |
+|----------------------------|---------------------|
+| `synchronized` instance method | `this`               |
+| `synchronized` static method   | `MyClass.class`      |
+| `synchronized (obj)` block     | `obj` (any object)   |
 
+> Use different lock objects for **fine-grained control** over concurrent access.
+
+---
+
+Let me know if you want this as a downloadable `.md` file.
