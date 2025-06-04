@@ -1,19 +1,18 @@
 package demo.threading;
 
 // This code simulates a building with two rooms: Room 31 and Room 52.
-// Each room has its own unique key (lock).
-// Two people (threads) want to enter the building simultaneously.
-// Person A uses the key to Room 31.
-// Person B uses the key to Room 52.
-// Since they have different keys, both can enter their rooms concurrently without waiting.
-// While Person A is inside Room 31, Person B can be inside Room 52 at the same time.
-// Each person locks their room while inside (using synchronized on that room's lock).
-// When finished, they leave and unlock the room.
-// Meanwhile, the building’s manager (main thread) waits until both leave before closing the building.
+// Each room has its own unique key (lock), ensuring privacy and exclusive access.
+// Two people (threads) want to use the rooms at the same time:
+//   - Person A uses the key to Room 31.
+//   - Person B uses the key to Room 52.
+// Because they use different keys, they can access their rooms concurrently without waiting for each other.
+// While Person A is inside Room 31, Person B can independently be inside Room 52.
+// Each person locks their room while inside (synchronized on their room's lock) and unlocks it after leaving.
+// Meanwhile, the building’s manager (main thread) waits until both people finish and exit their rooms before closing the building.
 //
-// To time the execution from the console, run:
+// To compile and measure execution time on Windows PowerShell:
 // javac demo\threading\BuildingLockExampleWithDifferentRoomKeys.java; Measure-Command { java demo.threading.BuildingLockExampleWithDifferentRoomKeys }
-// The total time will be roughly the longest sleep time (4 seconds), showing concurrent access.
+// Since both threads run in parallel, the total time will be approximately equal to the longest room usage (4 seconds), not the sum.
 
 public class BuildingLockExampleWithDifferentRoomKeys {
 
