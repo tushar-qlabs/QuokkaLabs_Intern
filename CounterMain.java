@@ -25,6 +25,14 @@ class Counter {
         ++count;
     }
 
+// This block of code is similar to the above code achieved by using synchronized method.
+// public void increment() {
+//     synchronized(this) {
+//         count.incrementAndGet();
+//         ++count;
+//     }
+// }
+
     public int getCount() {
 //        return count.get();
         return count;
