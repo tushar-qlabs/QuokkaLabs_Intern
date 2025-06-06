@@ -1,4 +1,4 @@
-package dev.tushar.ecommerceapi.temp;
+package dev.tushar.practice.temp;
 
 import org.springframework.stereotype.Component;
 
