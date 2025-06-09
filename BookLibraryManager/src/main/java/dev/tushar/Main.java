@@ -26,7 +26,7 @@ public class Main {
             sc.nextLine();
 
             switch (choice) {
-                case 1 -> addBookFlow();
+                case 1 -> addBookDetails();
                 case 2 -> library.getAllBooks().forEach(System.out::println);
                 case 3 -> {
                     System.out.print("Enter keyword: ");
@@ -45,7 +45,7 @@ public class Main {
         }
     }
 
-    private static void addBookFlow() {
+    private static void addBookDetails() {
         try {
             System.out.print("ID: ");
             int id = Integer.parseInt(sc.nextLine());
