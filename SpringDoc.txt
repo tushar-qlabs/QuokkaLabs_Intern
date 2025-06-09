@@ -1,4 +1,4 @@
-Spring is an open source Java framework that simplify the building of enterprise level applications. It supports features like dependency injection, aspect-oriented programming (AOP)[pending], and transaction management. These features make the code easier to maintain, loosely coupled, and simple to test. Spring also integrates well with other frameworks and tools with less effort.
+Spring is an open source Java framework that simplify the building of enterprise level applications. It supports features like dependency injection, aspect-oriented programming (AOP)[pending], and transaction management. These features make the code easier to maintain, loosely coupled, and simple to test. Spring also integrates well with other frameworks and tools with less effort...
 
 IoC (Inversion of Control) is a design principle where the control of creating an object is managed by the Spring container. This is done with the help of dependency injection, where Spring automatically injects the dependencies into the dependent class, instead of creating it by itself. This makes the code more flexible and loosely coupled.
 
@@ -16,6 +16,9 @@ IoC (Inversion of Control) is a design principle where the control of creating a
 @ControllerAdvice/@RestControllerAdvice: @ControllerAdvice is used to define global exception handling and apply common logic across multiple controllers. In contrast, @RestControllerAdvice does the same but also adds @ResponseBody by default, making it perfect for REST APIs that return JSON error responses.
 
 @ExceptionHandler is used to define a method that handles specific exceptions thrown in controllers. It lets you customize the response or behavior when an exception occurs, either locally within a controller or globally inside a @ControllerAdvice class.
+
+We have additional Spring-specific annotations like @PropertySource that work together with the @Value annotation to inject values from property files into fields.
+Additionally, we have @ConfigurationProperties, which uses the prefix attribute to bind a specific section of the properties file to a Java object.
 
 
 
