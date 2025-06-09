@@ -1,4 +1,4 @@
-Spring is an open source Java framework that simplify the building of enterprise level applications. It supports features like dependency injection, aspect-oriented programming (AOP)[pending], and transaction management. These features make the code easier to maintain, loosely coupled, and simple to test. Spring also integrates well with other frameworks and tools with less effort...
+Spring is an open source Java framework that simplify the building of enterprise level applications. It supports features like dependency injection, aspect-oriented programming (AOP)[pending], and transaction management. These features make the code easier to maintain, loosely coupled, and simple to test. Spring also integrates well with other frameworks and tools with less effort.
 
 IoC (Inversion of Control) is a design principle where the control of creating an object is managed by the Spring container. This is done with the help of dependency injection, where Spring automatically injects the dependencies into the dependent class, instead of creating it by itself. This makes the code more flexible and loosely coupled.
 
