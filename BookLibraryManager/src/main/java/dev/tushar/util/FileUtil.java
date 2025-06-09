@@ -15,7 +15,7 @@ public class FileUtil {
         if (!Files.exists(path)) return Collections.emptyList();
 
         try {
-            return Files.readAllLines(path, StandardCharsets.UTF_8).stream()
+            return Files.readAllLines(path).stream()
                     .map(line -> line.split(","))
                     .filter(tokens -> tokens.length == 4)
                     .map(tokens -> {
