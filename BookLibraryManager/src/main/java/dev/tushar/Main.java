@@ -43,6 +43,7 @@ public class Main {
                 default -> System.out.println("Invalid choice. Try again.");
             }
         }
+        sc.close();
     }
 
     private static void addBookDetails() {
