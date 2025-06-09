@@ -17,13 +17,13 @@ public class FileUtil {
         try {
             return Files.readAllLines(path).stream()
                     .map(line -> line.split(","))
-                    .filter(tokens -> tokens.length == 4)
+                    .filter(arr -> arr.length == 4)
                     .map(tokens -> {
                         try {
-                            int id = Integer.parseInt(tokens[0].trim());
-                            String title = tokens[1].trim();
-                            String author = tokens[2].trim();
-                            double price = Double.parseDouble(tokens[3].trim());
+                            int id = Integer.parseInt(arr[0].trim());
+                            String title = arr[1].trim();
+                            String author = arr[2].trim();
+                            double price = Double.parseDouble(arr[3].trim());
                             return new Book(id, title, author, price);
                         } catch (NumberFormatException e) {
                             return null;
