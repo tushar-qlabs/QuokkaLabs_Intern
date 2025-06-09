@@ -41,7 +41,7 @@ public class FileUtil {
         Path path = Paths.get(filePath);
 
         List<String> lines = books.stream()
-                .map(book -> String.format("%d,%s,%s,%.2f",
+                .map(book -> String.format("%d,%s,%s,%.2f", // we formattin it in numeric, string, string and float with 2 point precesion.
                         book.getId(), book.getTitle(), book.getAuthor(), book.getPrice()))
                 .collect(Collectors.toList());
 
