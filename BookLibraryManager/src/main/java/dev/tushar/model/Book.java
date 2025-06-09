@@ -16,14 +16,18 @@ public class Book implements Comparable<Book> {
     @Override
     public int compareTo(Book other) {
         return this.title.compareToIgnoreCase(other.title);
+        // This compares two book titles ignoring case,
+        // allowing us to sort books lexicographically by title.
+        // We override compareTo because Comparable requires it,
+        // and we want to define the natural order based on the title.
     }
 
-    // We're not updating title and author right now
+    // We're not updating title and author right now (...umm, maybe later)
     public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
+        this.title = title == null ? null : title.trim(); // Say, no to trailing or leading whitespace
     }
 
     public void setAuthor(String author) {
-        this.author = author == null ? null : author.trim();
+        this.author = author == null ? null : author.trim(); // Same as above!
     }
 }
