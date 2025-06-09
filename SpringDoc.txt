@@ -1,0 +1,21 @@
+Spring is an open source Java framework that simplify the building of enterprise level applications. It supports features like dependency injection, aspect-oriented programming (AOP), and transaction management. These features make the code easier to maintain, loosely coupled, and simple to test. Spring also integrates well with other frameworks and tools with less effort.
+
+IoC (Inversion of Control) is a design principle where the control of creating an object is managed by the Spring container. This is done with the help of dependency injection, where Spring automatically injects the dependencies into the dependent class, instead of creating it by itself. This makes the code more flexible and loosely coupled.
+
+@SpringBootApplication is also known as a meta-annotation because it bundles multiple commonly used Spring annotations:
+  - @Configuration: It marks the class as a source of Spring bean definitions using @Bean methods.
+  - @EnableAutoConfiguration: Enables Spring Boot's auto configuration feature, which automatically configures beans based on the classpath dependencies.
+  - @ComponentScan: Enables component scanning to detect and register components like @Component, @Service, @Repository, and @Controller.
+
+@Component - Is the generic stereotype annotation in Spring and is used to mark a class as a Spring managed bean.
+@Autowired - It is a Spring annotation used to automatically inject dependencies (beans) into a class and resolve the dependencies. It can be used on property, methods and constructor.
+@Controller/@RestController - @Controller and @RestController are Spring annotations used to define web controllers. @Controller is for handling web requests that return views, while @RestController is a specialized version that returns JSON or XML data directly for REST APIs.
+@Service is a specialized version of @Component mainly used to mark service layer classes in the business logic. It helps clarify the role of the class and makes the code more readable and maintainable.
+@Repository - It is also an specialized version of @Component used to mark data access layer classes (like DAOs). It also enables automatic exception translation into Spring’s data access exceptions.
+
+@ControllerAdvice/@RestControllerAdvice: @ControllerAdvice is used to define global exception handling and apply common logic across multiple controllers. In contrast, @RestControllerAdvice does the same but also adds @ResponseBody by default, making it perfect for REST APIs that return JSON error responses.
+
+@ExceptionHandler is used to define a method that handles specific exceptions thrown in controllers. It lets you customize the response or behavior when an exception occurs, either locally within a controller or globally inside a @ControllerAdvice class.
+
+
+
