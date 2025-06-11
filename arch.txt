@@ -1,0 +1,13 @@
+Client Server Model
+The client-server model is a common way to structure applications. It separates the application into two parts: the client, which is what the user interacts with and the server, which stores the data and runs the application's logic. The client sends requests to the server, and the server sends back responses. This model is used in many applications, including websites and email.
+
+APIs
+An API (Application Programming Interface) sets the rules for how different software applications talk to each other. It's like a common language they use to exchange information. To securely access and use an API, we often need an API token. This digital key proves who you are, letting you access its services and data.
+This way, if you want a backend for both an Android application and a website, you don't have to write separate backends. We can use the existing unified endpoint to access the service from both platforms.
+
+MVC (Model-View-Controller) and MVT (Model-View-Template) are two popular design patterns for organizing code in web applications. The MVC pattern separates an application into three parts: 
+the Model, which manages data and logic; 
+the View, which is the user interface; 
+and the Controller, which handles user input and updates the other two components.
+
+The MVT pattern, used by the Django framework, is similar. It also has a Model for data, but it uses a Template for the user interface and a View to handle the user's request and decide what data to show. The main difference is the component that handles user requests: in MVC it is the Controller, while in MVT it is the View.
