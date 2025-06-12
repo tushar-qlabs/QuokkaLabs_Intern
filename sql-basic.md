@@ -37,7 +37,7 @@
         ```sql
         SELECT category, SUM(amount) AS total_sales
         FROM sales
-        WHERE amount > 500  -- ✅ Filters raw data before grouping
+        WHERE amount > 500  -- Filters raw data before grouping
         GROUP BY category;
         
         ```
@@ -46,7 +46,7 @@
         SELECT category, SUM(amount) AS total_sales
         FROM sales
         GROUP BY category
-        HAVING SUM(amount) > 5000;  -- ✅ Filters aggregated results based on grouped data
+        HAVING SUM(amount) > 5000;  -- Filters aggregated results based on grouped data
         
         ```
         
