@@ -1,0 +1,29 @@
+SQL syntactical and execution order:
+
+1. General Syntactical Order (How we write it):
+
+Here’s the correct and full order of SQL clauses when writing queries:
+
+SELECT – What columns you want
+FROM – The base table
+JOIN – Any other tables you want to join
+ON – The condition for the join
+WHERE – Filter rows before grouping
+GROUP BY – Group rows
+HAVING – Filter grouped rows
+ORDER BY – Sort results
+LIMIT / OFFSET – Pagination
+
+2. Logical Execution Order (How the database processes it):
+
+This is the sequence the database actually follows to process the data, which is different from how you write the query. --
+
+FROM / JOIN – Get tables, link them up)
+WHERE – Filter individual rows)
+GROUP BY – Group rows together)
+HAVING – Filter those groups)
+SELECT – Pick columns, do calculations)
+DISTINCT – Remove duplicate rows)
+ORDER BY – Sort the final results)
+LIMIT / OFFSET – Show specific number of results)
+
