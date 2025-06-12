@@ -19,11 +19,12 @@
     - Using `COALESCE()` to handle NULL values (`COALESCE(product, 'no_product');`)
         - **Breakdown:** COAL-ESC-E (Think of it as escaping NULL values with a fallback)
 6. **GROUP BY Rule (Important)**
-    - When using `GROUP BY`, any column in `SELECT` must be:
+    - When using `GROUP BY`, any column in `SELECT` must be.
         - Either in `GROUP BY`
         - OR inside an aggregate function (`SUM()`, `COUNT()`, etc.)
     - This ensures that SQL knows how to group and summarize data properly.
     - Fixing errors by adding columns to `GROUP BY` or using `ANY_VALUE()`
+    - So, in simple.... If a column is not used inside an aggregate function (SUM(), COUNT(), etc.), then it must be listed in the GROUP BY clause.
 7. **Handling NULL Values**
     - `COALESCE(column, default_value)` to replace NULLs
 8. **Sorting Aggregated Data**
