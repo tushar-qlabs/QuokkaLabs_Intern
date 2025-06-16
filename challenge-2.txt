@@ -1,0 +1,8 @@
+SELECT L.X, L.Y
+FROM Functions L
+JOIN Functions R -- applyin self join
+    ON L.X = R.Y AND R.X = L.Y -- join to find the symm pairs.
+WHERE L.X <= L.Y -- includin only those which satisfy this one direction condition.
+GROUP BY L.X, L.Y
+    HAVING L.X != L.Y OR COUNT(*) > 1 -- Groupin it to count the sym pairs. 
+ORDER BY L.X ASC; -- sort the result by the asc of L.X
