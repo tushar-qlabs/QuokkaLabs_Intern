@@ -1,0 +1,20 @@
+WITH ChallengeCounts AS ( -- This way we will get all the challenges count for every particular hacker_id.
+    SELECT hacker_id, COUNT(*) AS total_challenges
+    FROM Challenges
+    GROUP BY hacker_id 
+),
+UniqueOrMaxHackers AS ( -- Here first we will find all those rows which have the challenges count equivalent to max count or those which are unique (no hacker_id with similar challegen count).
+    SELECT hacker_id, total_challenges
+    FROM ChallengeCounts
+    WHERE total_challenges = (SELECT MAX(total_challenges) FROM ChallengeCounts) -- We doing the subquery to find the max challenge count from ChallengeCounts and based on it we filtering out those rows.
+       OR total_challenges IN (
+           SELECT total_challenges
+           FROM ChallengeCounts
+           GROUP BY total_challenges
+           HAVING COUNT(*) = 1
+       ) -- Then here we grouping by total_challenge and filtering those rows whose count is 1, which means those hacker_id have unique total_challenges.
+)
+SELECT h.hacker_id, h.name, u.total_challenges -- Now joining to get the name column of hacker, which will resemble to the expected table.
+FROM Hackers h
+JOIN UniqueOrMaxHackers u ON h.hacker_id = u.hacker_id
+ORDER BY u.total_challenges DESC, h.hacker_id;
