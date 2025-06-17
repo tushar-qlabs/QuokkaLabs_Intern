@@ -1,1 +1,8 @@
 
+SELECT s.name
+FROM students s
+    JOIN friends f ON s.id = f.id -- We will join friends tbl to get each student's friends
+    JOIN packages p ON s.id = p.id -- Now we will join packages table to get the salary info of students.
+    JOIN packages p1 ON f.friend_id = p1.id -- Next we will join packages table  again to get the salary  ifnor of the friends
+WHERE p1.salary > p.salary -- Filter all those those where friend salary is more more then student salary
+ORDER BY p1.salary; -- Finally we will sort it based on friends salary.
